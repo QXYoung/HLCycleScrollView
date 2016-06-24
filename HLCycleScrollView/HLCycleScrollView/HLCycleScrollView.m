@@ -280,6 +280,9 @@ NSString * const ID = @"cycleCell";
     
     if (imagePathsGroup.count != 1) {
         self.mainView.scrollEnabled = YES;
+        if (self.onlyDisplayText) {
+            self.mainView.scrollEnabled = NO;
+        }
         [self setAutoScroll:self.autoScroll];
     } else {
         self.mainView.scrollEnabled = NO;
@@ -319,6 +322,7 @@ NSString * const ID = @"cycleCell";
 {
     _titlesGroup = titlesGroup;
     if (self.onlyDisplayText) {
+        self.mainView.scrollEnabled = NO;
         NSMutableArray *temp = [NSMutableArray new];
         for (int i = 0; i < _titlesGroup.count; i++) {
             [temp addObject:@""];
